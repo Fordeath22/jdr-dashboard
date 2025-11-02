@@ -7,7 +7,7 @@ const APP_FILES_TO_CACHE = [
   'script.js',
   'manifest.json',
   'icon-512.png',
-  'dragon-bg-light.jpg' // NOUVEAU FOND
+  'dragon-bg.jpg' // NOUVEAU FOND
 ];
 
 // --- Événement d'installation ---
@@ -49,4 +49,5 @@ self.addEventListener('activate', (event) => {
   );
 
 });
+
 
