@@ -6,7 +6,7 @@ const APP_FILES_TO_CACHE = [
   'style.css',
   'script.js',
   'manifest.json',
-  'icon-512.jpg',
+  'icon-512.png',
   'dragon-bg.jpg' // NOUVEAU FOND
 ];
 
@@ -49,6 +49,7 @@ self.addEventListener('activate', (event) => {
   );
 
 });
+
 
 
 
