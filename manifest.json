@@ -11,8 +11,10 @@
       "src": "dragon-bg-light.jpg",
       "sizes": "512x512",
       "type": "image/png"
+      "purpose": "any maskable"
     }
   ]
 
 }
+
 
