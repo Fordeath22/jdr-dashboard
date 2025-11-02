@@ -8,7 +8,7 @@
   "description": "Un dashboard pour gérer les fiches de personnage JDR.",
   "icons": [
     {
-      "src": "dragon-bg-light.jpg",
+      "src": "icon-512.jpg",
       "sizes": "512x512",
       "type": "image/png"
       "purpose": "any maskable"
@@ -16,5 +16,6 @@
   ]
 
 }
+
 
 
