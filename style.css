@@ -1,0 +1,727 @@
+/* --- 1. THÈME (Gris Dragon Léger) --- */
+body {
+    font-family: 'Georgia', serif;
+    /* CORRIGÉ: Utilise le nom de votre image */
+    background-image: url('dragon-bg.jpg'); 
+    background-color: #e0e0e0; 
+    background-repeat: repeat;
+    background-attachment: fixed;
+    color: #333; 
+    padding: 15px;
+    padding-top: 100px; /* Pousse le contenu vers le bas pour la barre fixe */
+}
+
+/* --- 2. CONTENEUR PRINCIPAL (Clair) --- */
+.sheet {
+    max-width: 900px; 
+    margin: 0 auto; /* Marge normale */
+    background-color: rgba(250, 250, 250, 0.85); 
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: 1px solid #777; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+h1, h2 {
+    text-align: center;
+    border-bottom: 2px solid #888;
+    padding-bottom: 5px;
+    color: #222; 
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+h1 {
+    margin-top: 10px; 
+}
+
+/* --- 3. NOUVEAU: NAVIGATION PAR ONGLETS --- */
+.tab-nav {
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid #888;
+    margin-bottom: 20px;
+}
+.tab-button {
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+    padding: 10px 15px;
+    border: none;
+    background-color: transparent;
+    color: #555;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: -2px; 
+    border-bottom: 2px solid transparent;
+}
+.tab-button.active {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #888;
+    border-bottom: 2px solid rgba(250, 250, 250, 0.85); 
+    color: #000;
+}
+
+/* --- 4. LAYOUT DES ONGLETS --- */
+.main-layout {
+    /* N'est plus une grille */
+}
+.tab-content {
+    display: none; 
+    animation: fadeIn 0.3s;
+}
+.tab-content.active {
+    display: block; 
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* --- 5. INPUTS & BOUTONS (Thème clair) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px;
+}
+@media (min-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; 
+}
+.full-width {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    color: #222; 
+    font-family: 'Georgia', serif;
+}
+textarea.full-width {
+    min-height: 150px;
+    resize: vertical; 
+}
+
+/* --- 6. DASHBOARD STATS (Thème clair) --- */
+.stats-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.combat-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+@media (min-width: 600px) {
+    .combat-dashboard {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 5px; 
+    padding: 10px; 
+    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+.stat-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.stat-header label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: left;
+}
+.stat-bonus-big {
+    font-size: 2.2em; 
+    font-weight: bold;
+    color: #000; 
+    line-height: 1;
+    text-align: left;
+    grid-row: 2; 
+}
+.stat-score-small {
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.7);
+    padding: 10px 5px;
+    grid-row: 1 / span 2; 
+    grid-column: 2; 
+    -moz-appearance: textfield;
+}
+.stat-score-small::-webkit-outer-spin-button,
+.stat-score-small::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dash-box {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px; 
+}
+.dash-box label {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.hp-box {
+    grid-column: 1 / -1; 
+    min-height: 80px;
+}
+@media (min-width: 600px) {
+    .hp-box {
+        grid-column: auto; 
+    }
+}
+.hp-main {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+}
+.hp-main span {
+    margin: 0 5px;
+    font-size: 1.2em;
+    color: #555;
+}
+.hp-main input {
+    width: 45%;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background: transparent;
+    color: #333;
+    -moz-appearance: textfield;
+}
+.hp-main input::-webkit-outer-spin-button,
+.hp-main input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.dash-box .dash-box-main {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.2;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+    -moz-appearance: textfield;
+}
+.dash-box input.dash-box-main::-webkit-outer-spin-button,
+.dash-box input.dash-box-main::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* --- 7. CONTENEUR DE COMPÉTENCES (CACHÉ) --- */
+.skill-list {
+    display: none; 
+    list-style: none;
+    padding: 10px 0 0 0;
+    margin: 10px 0 0 0;
+    border-top: 1px solid #aaa;
+}
+.stat-box.expanded .skill-list {
+    display: block;
+}
+
+.skill-list li {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+}
+.skill-list li:last-child {
+    border-bottom: none;
+}
+.skill-list label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+.skill-checks {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+.skill-checks input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px; 
+}
+
+/* --- 8. COMBAT STATS (Thème clair) --- */
+.combat-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+@media (min-width: 600px) {
+    .combat-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.header-box { 
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    min-height: 80px; 
+}
+.header-box label {
+    font-weight: bold;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+.header-box input {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background: transparent;
+    color: #333;
+    padding: 5px;
+    box-sizing: border-box;
+    -moz-appearance: textfield; 
+}
+.header-box input::-webkit-outer-spin-button,
+.header-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+  margin: 0;
+}
+.death-saves {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 80px;
+}
+.death-saves div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+.death-saves span { font-weight: bold; }
+.death-saves .check-group input { width: 18px; height: 18px; margin-left: 5px; }
+
+
+/* --- 9. PORTRAIT (Thème clair) --- */
+.portrait-container {
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #aaa;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; 
+    margin-bottom: 20px;
+}
+.portrait-container:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#portrait-label {
+    position: absolute;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}
+#char-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    z-index: 10;
+}
+#portrait-upload {
+    display: none; 
+}
+
+/* --- 10. TABLES ATTAQUES / SORTS (Thème clair) --- */
+.list-section {
+    margin-bottom: 20px;
+}
+.add-item-group-tabled {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 45px;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.add-item-group-tabled button {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    line-height: 1;
+    background-color: #777;
+    color: white;
+    border: 1px solid #999;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-item-group-tabled button:hover { background-color: #555; }
+
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.item-table th {
+    background-color: rgba(100, 100, 100, 0.7);
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+.item-table td {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+.item-table tr:last-child td { border-bottom: none; }
+.item-table .delete-btn {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+.item-table .delete-btn:hover { background-color: #a02d22; }
+.item-table td:last-child { text-align: center; }
+
+/* --- 11. EMPLACEMENTS DE SORTS (Thème clair) --- */
+.spell-slots-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 10px;
+}
+.spell-slot-box {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.spell-slot-box label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+.spell-slot-box div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.spell-slot-box input {
+    width: 45px;
+    text-align: center;
+    font-size: 1.2em;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    color: #333;
+    -moz-appearance: textfield;
+}
+.spell-slot-box input::-webkit-outer-spin-button,
+.spell-slot-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.spell-slot-box input::placeholder {
+    font-size: 0.8em;
+    color: #888;
+}
+
+
+/* --- 12. BOUTONS DE GESTION (NON-FIXE) --- */
+.sticky-top {
+    position: sticky; /* Reste en haut de la .sheet */
+    top: 10px;
+    background-color: rgba(230, 230, 230, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    z-index: 100;
+    
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px;
+    margin-bottom: 15px; 
+}
+.char-manager {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%; 
+    justify-content: center; 
+}
+.char-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%; 
+    justify-content: center; 
+}
+.char-manager select {
+    font-family: 'Georgia', serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #333;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 1.1em;
+    flex-grow: 1; 
+    min-width: 0; 
+}
+/* Boutons + et corbeille */
+.char-manager button {
+    background-color: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em; 
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    line-height: 1.2;
+    flex-shrink: 0; 
+}
+.char-manager button:hover {
+    background-color: #777;
+}
+.char-manager #btn-delete {
+    background-color: #c0392b; 
+    font-size: 1.2em; 
+}
+.char-manager #btn-delete:hover {
+    background-color: #a02d22;
+}
+/* Boutons d'action */
+.char-actions button {
+    background-color: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1;
+    margin: 0; 
+    flex-shrink: 0;
+}
+.char-actions button:hover {
+    background-color: #777;
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+/* Rétablit le layout horizontal sur PC */
+@media (min-width: 900px) {
+    .sticky-top {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .char-manager {
+        width: auto;
+        flex-grow: 1;
+        justify-content: flex-start;
+    }
+    .char-actions {
+        width: auto;
+        flex-shrink: 0;
+        justify-content: flex-end;
+    }
+}
+
+
+/* --- 13. STYLE INVENTAIRE (Thème clair) --- */
+#inventory-notes {
+    min-height: 200px;
+}
+
+/* --- 14. MODE VUE (LECTURE SEULE) (Thème clair) --- */
+/* (C'EST ICI QUE LE CHANGEMENT A LIEU) */
+
+.sheet.view-mode .edit-only {
+    display: none;
+}
+/* Verrouille les champs fixes */
+.sheet.view-mode input:not(#pv-current):not([id^="death-"]):not([id$="-current"]),
+.sheet.view-mode textarea:not(#char-notes):not(#inventory-notes) {
+    background-color: transparent !important;
+    border: none !important;
+    color: #333 !important; 
+    padding-left: 0;
+    padding-right: 0;
+    pointer-events: none; 
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow-wrap: break-word; 
+}
+/* Garde les champs "actuels" éditables, mais style discret */
+.sheet.view-mode #pv-current,
+.sheet.view-mode .spell-slot-input[id$="-current"] {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border-bottom: 1px dashed #555 !important;
+}
+/* Garde les notes et l'inventaire éditables */
+.sheet.view-mode #char-notes,
+.sheet.view-mode #inventory-notes {
+     background-color: rgba(255, 255, 255, 0.4) !important;
+     border: 1px dashed #aaa !important;
+}
+
+/* --- DEBUT DE LA MODIFICATION --- */
+
+/* En mode vue, inverse bonus et stat */
+.sheet.view-mode .stat-header {
+    cursor: default;
+}
+/* Le score devient PETIT */
+.sheet.view-mode .stat-score-small {
+    border: none !important; 
+    font-size: 1.1em; 
+    color: #333; 
+    padding: 5px 0 0 0; 
+    height: auto;
+    border-top: 1px solid #aaa; 
+    margin-top: 5px; /* Ajoute un peu d'espace */
+    text-align: left; /* Aligne avec le label */
+    grid-row: 2; /* Passe sous le label */
+    grid-column: 1; /* Reste à gauche */
+}
+/* Le bonus devient GROS */
+.sheet.view-mode .stat-bonus-big {
+    font-size: 2.5em; 
+    color: #000; 
+    flex-grow: 1; 
+    border-top: none; 
+    padding-top: 0; 
+    text-align: center; /* Centre le bonus */
+    grid-row: 1 / span 2; /* Prend les 2 rangées */
+    grid-column: 2; /* Se met à droite */
+}
+
+/* --- FIN DE LA MODIFICATION --- */
+
+.sheet.view-mode .hp-main input {
+    border-bottom: none !important;
+}
+.sheet.view-mode .hp-main input#pv-current {
+    border-bottom: 2px solid #aaa !important; 
+}
+/* Cache les flèches des inputs numériques en mode vue */
+.sheet.view-mode input::-webkit-outer-spin-button,
+.sheet.view-mode input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.sheet.view-mode input[type=number] {
+    -moz-appearance: textfield;
+}
+/* Garde les checkboxes VISIBLES mais non cliquables */
+.sheet.view-mode .js-check,
+.sheet.view-mode .maitrise-check,
+.sheet.view-mode .expertise-check {
+    opacity: 1; 
+    pointer-events: none; 
+}
+/* MAIS, garde les jets de sauvegarde (death saves) actifs ! */
+.sheet.view-mode input[id^="death-"] {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+}
+/* Empêche de cliquer sur le portrait */
+.sheet.view-mode .portrait-container {
+    cursor: default;
+    border-style: solid;
+}
+.sheet.view-mode .portrait-container:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+/* Cache la dernière colonne (bouton X) des tables */
+.sheet.view-mode .item-table th.edit-only,
+.sheet.view-mode .item-table td.edit-only {
+    display: none;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Compagnon JDR (Gris Dragon)",
+  "short_name": "JDR Gris",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#e0e0e0",
+  "theme_color": "#2c3e50",
+  "description": "Un dashboard pour gérer les fiches de personnage JDR.",
+  "icons": [
+    {
+      "src": "dragon-bg-light.jpg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
