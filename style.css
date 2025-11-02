@@ -1,20 +1,19 @@
 /* --- 1. THÈME (Gris Dragon Léger) --- */
 body {
     font-family: 'Georgia', serif;
-    /* CORRIGÉ: Utilise le nom de votre image */
-    background-image: url('dragon-bg.jpg'); 
+    background-image: url('dragon-bg.jpg'); /* Utilise votre nom de fichier */
     background-color: #e0e0e0; 
     background-repeat: repeat;
     background-attachment: fixed;
     color: #333; 
     padding: 15px;
-    padding-top: 100px; /* Pousse le contenu vers le bas pour la barre fixe */
+    padding-top: 100px; 
 }
 
 /* --- 2. CONTENEUR PRINCIPAL (Clair) --- */
 .sheet {
     max-width: 900px; 
-    margin: 0 auto; /* Marge normale */
+    margin: 0 auto; 
     background-color: rgba(250, 250, 250, 0.85); 
     padding: 15px 25px;
     border-radius: 5px;
@@ -114,27 +113,22 @@ textarea.full-width {
 }
 
 /* --- 6. DASHBOARD STATS (Thème clair) --- */
+
+/* CORRECTION 1: .stats-grid (le conteneur) */
 .stats-grid { 
     display: grid;
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* 1 colonne par défaut sur mobile */
     gap: 15px;
     margin-bottom: 20px;
 }
 .combat-dashboard {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* S'adapte auto */
     gap: 10px;
     margin-bottom: 20px;
 }
-@media (min-width: 600px) {
-    .combat-dashboard {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-    .stats-grid {
-        grid-template-columns: 1fr 1fr; /* Rétablit 2 colonnes sur écran large */
-    }
-}
 
+/* La "boîte carrée" pour les stats */
 .stat-box {
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid #aaa;
@@ -147,9 +141,10 @@ textarea.full-width {
 .stat-box:hover {
     background: rgba(255, 255, 255, 0.8);
 }
+/* CORRECTION 2: .stat-header (l'intérieur de la boîte) */
 .stat-header {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr; /* 1 colonne par défaut sur mobile */
     align-items: center;
     gap: 5px;
     cursor: pointer;
@@ -160,29 +155,31 @@ textarea.full-width {
     color: #333;
     text-transform: uppercase;
     margin: 0;
-    text-align: left;
+    text-align: center; /* Centré sur mobile */
 }
 .stat-bonus-big {
     font-size: 2.2em; 
     font-weight: bold;
     color: #000; 
     line-height: 1;
-    text-align: left;
-    grid-row: 2; 
+    text-align: center; /* Centré sur mobile */
+    grid-row: auto; /* Ordre normal */
 }
 .stat-score-small {
     font-size: 2.5em; 
     font-weight: bold;
     color: #333;
-    width: 100%;
+    width: 80px; /* Taille fixe */
+    justify-self: center; /* Centré */
     text-align: center;
     border: 1px solid #aaa;
     border-radius: 5px;
     background: rgba(255,255,255,0.7);
     padding: 10px 5px;
-    grid-row: 1 / span 2; 
-    grid-column: 2; 
+    grid-row: auto; /* Ordre normal */
+    grid-column: auto; /* Ordre normal */
     -moz-appearance: textfield;
+    margin-top: 10px;
 }
 .stat-score-small::-webkit-outer-spin-button,
 .stat-score-small::-webkit-inner-spin-button {
@@ -190,6 +187,7 @@ textarea.full-width {
   margin: 0;
 }
 
+/* Style de base pour les autres boîtes (PV, CA...) */
 .dash-box {
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid #aaa;
@@ -209,6 +207,7 @@ textarea.full-width {
     text-transform: uppercase;
     margin-bottom: 5px;
 }
+/* Spécifique pour la boîte PV */
 .hp-box {
     grid-column: 1 / -1; 
     min-height: 80px;
@@ -248,6 +247,7 @@ textarea.full-width {
   -webkit-appearance: none;
   margin: 0;
 }
+/* Spécifique pour CA, Init, Maîtrise */
 .dash-box .dash-box-main {
     font-size: 2.2em;
     font-weight: bold;
@@ -409,15 +409,16 @@ textarea.full-width {
 .list-section {
     margin-bottom: 20px;
 }
+/* CORRECTION 3: Barre d'ajout (mobile) */
 .add-item-group-tabled {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 45px;
+    grid-template-columns: 1fr; /* 1 colonne par défaut */
     gap: 10px;
     margin-bottom: 10px;
     align-items: center;
 }
 .add-item-group-tabled button {
-    width: 45px;
+    width: 100%; /* Bouton pleine largeur sur mobile */
     height: 45px;
     font-size: 24px;
     line-height: 1;
@@ -508,7 +509,7 @@ textarea.full-width {
 
 /* --- 12. BOUTONS DE GESTION (NON-FIXE) --- */
 .sticky-top {
-    position: sticky; /* Reste en haut de la .sheet */
+    position: sticky;
     top: 10px;
     background-color: rgba(230, 230, 230, 0.9);
     padding: 10px;
@@ -601,6 +602,8 @@ textarea.full-width {
 }
 /* Rétablit le layout horizontal sur PC */
 @media (min-width: 900px) {
+    /* ... (règle .main-layout d'avant) ... */
+    
     .sticky-top {
         flex-direction: row;
         justify-content: space-between;
@@ -615,6 +618,38 @@ textarea.full-width {
         flex-shrink: 0;
         justify-content: flex-end;
     }
+    
+    /* CORRECTION 1 (PC): Rétablit 2 colonnes de stats */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* CORRECTION 2 (PC): Rétablit 2 colonnes *dans* la boîte de stat */
+    .stat-header {
+        grid-template-columns: 1fr 1fr;
+    }
+    .stat-header label {
+        text-align: left;
+    }
+    .stat-bonus-big {
+        text-align: left;
+        grid-row: 2;
+        margin-top: 0;
+    }
+    .stat-score-small {
+        grid-row: 1 / span 2;
+        grid-column: 2;
+        margin-top: 0;
+        width: 100%;
+    }
+    
+    /* CORRECTION 3 (PC): Rétablit la barre d'ajout */
+    .add-item-group-tabled {
+        grid-template-columns: 2fr 1fr 1fr 45px;
+    }
+    .add-item-group-tabled button {
+        width: 45px;
+    }
 }
 
 
@@ -624,12 +659,9 @@ textarea.full-width {
 }
 
 /* --- 14. MODE VUE (LECTURE SEULE) (Thème clair) --- */
-/* (C'EST ICI QUE LE CHANGEMENT A LIEU) */
-
 .sheet.view-mode .edit-only {
     display: none;
 }
-/* Verrouille les champs fixes */
 .sheet.view-mode input:not(#pv-current):not([id^="death-"]):not([id$="-current"]),
 .sheet.view-mode textarea:not(#char-notes):not(#inventory-notes) {
     background-color: transparent !important;
@@ -642,51 +674,62 @@ textarea.full-width {
     box-sizing: border-box; 
     overflow-wrap: break-word; 
 }
-/* Garde les champs "actuels" éditables, mais style discret */
 .sheet.view-mode #pv-current,
 .sheet.view-mode .spell-slot-input[id$="-current"] {
     background-color: rgba(255, 255, 255, 0.4) !important;
     border-bottom: 1px dashed #555 !important;
 }
-/* Garde les notes et l'inventaire éditables */
 .sheet.view-mode #char-notes,
 .sheet.view-mode #inventory-notes {
      background-color: rgba(255, 255, 255, 0.4) !important;
      border: 1px dashed #aaa !important;
 }
-
-/* --- DEBUT DE LA MODIFICATION --- */
-
-/* En mode vue, inverse bonus et stat */
+.sheet.view-mode .dash-box-main,
+.sheet.view-mode .stat-bonus-big {
+    font-size: 2.2em;
+}
 .sheet.view-mode .stat-header {
     cursor: default;
 }
-/* Le score devient PETIT */
+
+/* MODIFICATION : Inversion Stat/Bonus en Mode Jeu */
 .sheet.view-mode .stat-score-small {
     border: none !important; 
-    font-size: 1.1em; 
+    font-size: 1.1em; /* Devient petit */
     color: #333; 
     padding: 5px 0 0 0; 
     height: auto;
     border-top: 1px solid #aaa; 
-    margin-top: 5px; /* Ajoute un peu d'espace */
-    text-align: left; /* Aligne avec le label */
-    grid-row: 2; /* Passe sous le label */
+    margin-top: 5px; 
+    text-align: left; /* Aligné à gauche */
+    grid-row: 2; /* Passe en bas */
     grid-column: 1; /* Reste à gauche */
 }
-/* Le bonus devient GROS */
 .sheet.view-mode .stat-bonus-big {
-    font-size: 2.5em; 
+    font-size: 2.5em; /* Devient gros */
     color: #000; 
     flex-grow: 1; 
     border-top: none; 
     padding-top: 0; 
-    text-align: center; /* Centre le bonus */
+    text-align: center; /* Centré */
     grid-row: 1 / span 2; /* Prend les 2 rangées */
-    grid-column: 2; /* Se met à droite */
+    grid-column: 2; /* Passe à droite */
 }
 
-/* --- FIN DE LA MODIFICATION --- */
+/* Rétablit l'inversion sur PC aussi */
+@media (min-width: 600px) {
+    .sheet.view-mode .stat-score-small {
+        text-align: left;
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .sheet.view-mode .stat-bonus-big {
+        text-align: center;
+        grid-row: 1 / span 2;
+        grid-column: 2;
+    }
+}
+
 
 .sheet.view-mode .hp-main input {
     border-bottom: none !important;
@@ -694,7 +737,6 @@ textarea.full-width {
 .sheet.view-mode .hp-main input#pv-current {
     border-bottom: 2px solid #aaa !important; 
 }
-/* Cache les flèches des inputs numériques en mode vue */
 .sheet.view-mode input::-webkit-outer-spin-button,
 .sheet.view-mode input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -703,19 +745,16 @@ textarea.full-width {
 .sheet.view-mode input[type=number] {
     -moz-appearance: textfield;
 }
-/* Garde les checkboxes VISIBLES mais non cliquables */
 .sheet.view-mode .js-check,
 .sheet.view-mode .maitrise-check,
 .sheet.view-mode .expertise-check {
     opacity: 1; 
     pointer-events: none; 
 }
-/* MAIS, garde les jets de sauvegarde (death saves) actifs ! */
 .sheet.view-mode input[id^="death-"] {
     pointer-events: auto !important;
     opacity: 1 !important;
 }
-/* Empêche de cliquer sur le portrait */
 .sheet.view-mode .portrait-container {
     cursor: default;
     border-style: solid;
@@ -723,10 +762,7 @@ textarea.full-width {
 .sheet.view-mode .portrait-container:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
-/* Cache la dernière colonne (bouton X) des tables */
 .sheet.view-mode .item-table th.edit-only,
 .sheet.view-mode .item-table td.edit-only {
     display: none;
-
 }
-
