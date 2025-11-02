@@ -116,7 +116,7 @@ textarea.full-width {
 /* --- 6. DASHBOARD STATS (Thème clair) --- */
 .stats-grid { 
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr; 
     gap: 15px;
     margin-bottom: 20px;
 }
@@ -729,3 +729,4 @@ textarea.full-width {
     display: none;
 
 }
+
