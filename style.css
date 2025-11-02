@@ -122,13 +122,16 @@ textarea.full-width {
 }
 .combat-dashboard {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     margin-bottom: 20px;
 }
 @media (min-width: 600px) {
     .combat-dashboard {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr; /* Rétablit 2 colonnes sur écran large */
     }
 }
 
@@ -724,4 +727,5 @@ textarea.full-width {
 .sheet.view-mode .item-table th.edit-only,
 .sheet.view-mode .item-table td.edit-only {
     display: none;
+
 }
