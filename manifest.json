@@ -1,5 +1,5 @@
 {
-  "name": "Compagnon JDR (Gris Dragon)",
+  "name": "Compagnon JDR V2",
   "short_name": "JDR Gris",
   "start_url": "index.html",
   "display": "standalone",
@@ -13,4 +13,5 @@
       "type": "image/png"
     }
   ]
+
 }
