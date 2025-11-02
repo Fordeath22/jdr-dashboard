@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jdr-dashboard-v1'; // Nouveau nom pour forcer la MAJ
+const CACHE_NAME = 'jdr-dashboard-v2'; // Nouveau nom pour forcer la MAJ
 
 const APP_FILES_TO_CACHE = [
   './', 
@@ -49,6 +49,7 @@ self.addEventListener('activate', (event) => {
   );
 
 });
+
 
 
 
