@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resistancesInput = document.getElementById('resistances');
     const spellSlots = document.querySelectorAll('.spell-slot-input');
     const inventoryNotes = document.getElementById('inventory-notes');
+    const charActionsText = document.getElementById('char-actions-text');
     const newAttackName = document.getElementById('new-attack-name');
     const newAttackBonus = document.getElementById('new-attack-bonus');
     const newAttackDmg = document.getElementById('new-attack-dmg');
@@ -135,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const fieldsToLock = document.querySelectorAll(
         '#char-name, #char-class, #bonus-maitrise, #ca, #pv-max, #des-vie, #seuil-blessure, #fatigue, #resistances, ' +
+        // Ajout des actions
+        '#char-actions-text, ' +
         '.stat-score-small, .spell-slot-input[id$="-max"]'
     );
     const checksToLock = document.querySelectorAll(
@@ -191,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fatigue.value = character.fatigue || '0';
         resistancesInput.value = character.resistances || '';
         inventoryNotes.value = character.inventory || ''; 
+        charActionsText.value = character.actions || '';
 
         statInputs.forEach(input => {
             input.value = (character.stats && character.stats[input.id]) || '10';
@@ -249,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fatigue: fatigue.value,
             resistances: resistancesInput.value,
             inventory: inventoryNotes.value,
+            actions: charActionsText.value,
             portraitData: portraitImg.src, 
             stats: {},
             js_maitrises: {},
