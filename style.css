@@ -662,14 +662,24 @@ textarea.full-width {
 .sheet.view-mode .edit-only {
     display: none;
 }
-.sheet.view-mode input:not(#pv-current):not([id^="death-"]):not([id$="-current"]),
+.sheet.view-mode input:not(#pv-current):not([id^="death-"]):not([id$="-current"]) {
+    background-color: transparent !important;
+    border: none !important;
+    color: #333 !important; 
+    padding-left: 0;
+    padding-right: 0;
+    pointer-events: none; /* Bloque le clic sur les inputs */
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow-wrap: break-word;
+}
+
 .sheet.view-mode textarea:not(#char-notes):not(#inventory-notes) {
     background-color: transparent !important;
     border: none !important;
     color: #333 !important; 
     padding-left: 0;
     padding-right: 0;
-    pointer-events: none; 
     width: 100%; 
     box-sizing: border-box; 
     overflow-wrap: break-word; 
